@@ -1,0 +1,47 @@
+$bg: #1a1a1a
+
+button
+  position: relative
+  background: var(--glow), black
+
+  border-radius: 1rem
+  border: 4px solid transparent
+
+  padding: 1em 2em
+  margin-inline: 0.5em
+
+  text-transform: uppercase
+  font-weight: bold
+  letter-spacing: 0.1ch
+
+  cursor: pointer
+  transition: background-size 0.24s
+
+button::before 
+  content: ""
+  position: absolute
+
+  border-radius: calc(1rem - 4px)
+
+  inset: 0
+  box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset
+  z-index: 2
+  background: #222
+
+button span 
+  background: var(--glow), black
+  background-clip: text
+  color: transparent
+  height: 100%
+  width: 100%
+  z-index: 2
+  position: relative
+  inset: 0
+
+button::after 
+  content: ""
+  position: absolute
+  inset: -4px
+  filter: blur(20px)
+  background: var(--glow)
+  border-radius: 1rem
