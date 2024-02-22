@@ -1,0 +1,24 @@
+<style>
+  a {
+    color: #eee;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 3em;
+
+    border-radius: 0.5em;
+  }
+  a:hover {
+    background-color: #ffffff15;
+  }
+  .is-active {
+    background-color: #ffffff20;
+  }
+</style>
+<a href="/{{ titulo }}" [class.is-active]="isActive">{{ titulo }}</a>
