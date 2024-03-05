@@ -5,10 +5,6 @@ interface CardsList {
   label: string;
   src: string;
 }
-interface MenuList {
-  title: string;
-  cards: Array<CardsList>;
-}
 
 const listMenu = [
   {
@@ -18,17 +14,17 @@ const listMenu = [
         label: 'background-circle-motion-button',
         src: '../../assets/images/background-circle-motion-button.png',
       },
+      {
+        label: 'button-charge',
+        src: '../../assets/images/button-charge.png',
+      },
     ],
   },
   {
     title: 'cards',
     cards: [
       {
-        label: 'background-circle-motion-button',
-        src: '../../assets/images/background-circle-motion-button.png',
-      },
-      {
-        label: 'background-circle-motion-button',
+        label: 'error',
         src: '../../assets/images/background-circle-motion-button.png',
       },
     ],
