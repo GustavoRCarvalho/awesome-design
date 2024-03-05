@@ -1,5 +1,14 @@
 $bg: #1a1a1a
 
+.buttonContainer
+  --x: 0
+  --y: 0
+  --xp: 0
+  --hue: calc(0 + (var(--xp) * 500))
+  --size: 100px
+  --glow: radial-gradient(hsl(var(--hue) 80% 85%), hsl(var(--hue) 80% 70%), transparent, transparent) calc((var(--x) * 1px) - (var(--size) * 0.5)) calc((var(--y) * 1px) - (var(--size) * 0.5) ) / var(--size) var(--size) no-repeat fixed
+  padding: 3em
+
 button
   position: relative
   background: var(--glow), black
