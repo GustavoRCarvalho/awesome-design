@@ -29,7 +29,9 @@ export class ButtonComponent {
     if (this.isToggle) {
       size = '100px';
     }
-    document.documentElement.style.setProperty('--size', size);
+    document
+      .querySelector<HTMLElement>('.buttonContainer')
+      ?.style.setProperty('--size', size);
     this.isToggle = !this.isToggle;
   }
   ngOnInit() {
