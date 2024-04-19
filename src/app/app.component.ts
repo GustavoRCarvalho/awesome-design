@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ButtonComponent } from '../components/button-awesome/button.component';
-import { Navigation } from '../components/navagation/navigation.component';
+import { Navigation } from '../components/navigation/navigation.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

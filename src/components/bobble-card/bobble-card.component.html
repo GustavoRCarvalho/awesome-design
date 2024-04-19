@@ -1,0 +1,127 @@
+<style>
+  .bobbleContainer {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: black;
+    background: linear-gradient(
+      213deg,
+      rgba(222, 191, 244, 1) 0%,
+      rgba(255, 178, 178, 1) 50%,
+      rgba(255, 215, 158, 1) 100%
+    );
+  }
+
+  .bobbleContainer > span {
+    font-family: "Dosis";
+    font-size: 1.5em;
+    color: aliceblue;
+  }
+
+  .restartButton {
+    display: none;
+    color: aliceblue;
+
+    cursor: pointer;
+  }
+
+  .restartButton.show {
+    display: block;
+  }
+
+  .bobbleBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .bobbles {
+    width: 50px;
+    height: 50px;
+
+    /* border: 1px solid black; */
+    animation: changeRadius linear 6s infinite alternate;
+
+    box-shadow: inset -5px -3px 13px -5px rgb(239 127 233),
+      inset -5px -8px 20px -10px rgb(241, 228, 32),
+      inset 3px 5px 20px -10px rgba(20, 238, 238, 0.47),
+      inset 4px 7px 13px -5px rgb(255, 255, 255),
+      inset -4px -7px 3px -5px rgb(255, 255, 255);
+
+    cursor: pointer;
+    pointer-events: none;
+  }
+
+  @keyframes changeRadius {
+    0% {
+      transform: translateX(0px) translateY(0px) scaleX(100%) scaleY(95%);
+      border-radius: 50% 50% 50% 50%;
+    }
+    25% {
+      transform: translateX(5px) translateY(0px) scaleX(95%) scaleY(100%);
+      border-radius: 50% 45% 50% 47%;
+    }
+    50% {
+      transform: translateX(0px) translateY(5px) scaleX(100%) scaleY(95%);
+      border-radius: 45% 50% 47% 50%;
+    }
+    75% {
+      transform: translateX(-5px) translateY(0px) scaleX(95%) scaleY(100%);
+      border-radius: 50% 47% 50% 45%;
+    }
+    100% {
+      transform: translateX(0px) translateY(0px) scaleX(100%) scaleY(95%);
+      border-radius: 47% 50% 45% 50%;
+    }
+  }
+
+  .bobbles2 {
+    animation: changeRadius linear 5s infinite alternate;
+  }
+  .bobbles3 {
+    animation: changeRadius linear 4s infinite alternate;
+  }
+
+  .pop {
+    transform: scaleX(0%) scaleY(0%);
+    border-radius: 50% 50% 50% 50%;
+    animation: popBubble linear 0.02s;
+  }
+
+  @keyframes popBubble {
+    0% {
+      transform: scaleX(100%) scaleY(100%);
+    }
+    100% {
+      transform: scaleX(120%) scaleY(120%);
+    }
+  }
+</style>
+<div class="bobbleContainer">
+  <span>Loading... {{ porcent }}%</span>
+  <ng-icon
+    class="restartButton"
+    [ngClass]="{
+      show: porcent === 100
+    }"
+    (click)="startLoading()"
+    name="ionReload"
+    size="1.5em"
+  ></ng-icon>
+  <div class="bobbleBox">
+    <div
+      class="bobbles"
+      *ngFor="let item of items"
+      [ngClass]="{
+        pop: item.isClicked,
+        bobbles2: item.id % 2 === 0,
+        bobbles3: item.id % 3 === 0
+      }"
+      (click)="onClickBubble($event, item)"
+    ></div>
+  </div>
+</div>
