@@ -35,30 +35,27 @@ export class BoobleCardComponent {
       { id: 5, isClicked: false },
     ];
     this.porcent = 0;
+    this.items.forEach((_, index) => {
+      setTimeout(() => {
+        let bobble = document
+          .querySelectorAll<HTMLElement>('.bobbles')
+          ?.item(index);
+
+        const rectangle = bobble.getBoundingClientRect();
+        const centerX = rectangle.left + rectangle.width / 2;
+        const centerY = rectangle.top + rectangle.height / 2;
+
+        bobble.dispatchEvent(
+          new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            clientX: centerX,
+            clientY: centerY,
+          })
+        );
+      }, 50 * (index + 1) * 20);
+    });
     for (let i = this.porcent; i < 101; i++) {
-      this.items.forEach((value, index) => {
-        if (i === 20 * value.id) {
-          setTimeout(() => {
-            let bobble = document
-              .querySelectorAll<HTMLElement>('.bobbles')
-              ?.item(index);
-
-            const rectangle = bobble.getBoundingClientRect();
-            const centerX = rectangle.left + rectangle.width / 2;
-            const centerY = rectangle.top + rectangle.height / 2;
-
-            bobble.dispatchEvent(
-              new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-                clientX: centerX,
-                clientY: centerY,
-              })
-            );
-          }, 50 * i);
-        }
-      });
-
       setTimeout(() => {
         this.porcent = i;
       }, 50 * i);
