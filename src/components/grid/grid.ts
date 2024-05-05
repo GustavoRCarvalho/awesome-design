@@ -27,6 +27,11 @@ const listMenu = [
         label: 'booble-card',
         src: '../../assets/images/bobble-card.png',
       },
+
+      {
+        label: 'card-ambient-light',
+        src: '../../assets/images/button-charge.png',
+      },
       {
         label: 'error',
         src: '../../assets/images/background-circle-motion-button.png',

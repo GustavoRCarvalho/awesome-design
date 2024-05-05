@@ -4,6 +4,7 @@ import { Grid } from '../components/grid/grid';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { ButtonCharge } from '../components/button-charge/button-charge.component';
 import { BoobleCardComponent } from '../components/bobble-card/bobble-card.component';
+import { CardAmbientLight } from '../components/card-ambient-light/card-ambient-light.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'cards/booble-card',
     component: BoobleCardComponent,
+  },
+  {
+    path: 'cards/card-ambient-light',
+    component: CardAmbientLight,
   },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
